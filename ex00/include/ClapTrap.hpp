@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 02:03:43 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 13:51:33 by coder            ###   ########.fr       */
+/*   Updated: 2022/03/01 15:04:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class ClapTrap {
 
 	private:
 
-		std::string _name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDamage;
+		std::string		_name;
+		unsigned int	_hitPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
 
 	public:
 
@@ -38,10 +38,10 @@ class ClapTrap {
 		void		takeDamage( unsigned int amount );
 		void		beRepaired( unsigned int amount );
 		void		printInfos( void );
-		int			getHitPoints( void ) const;
-		int			getEnergyPoints( void ) const;
-		int			getAttackDamage( void ) const;
-		std::string	getName( void ) const;
+		unsigned int	getHitPoints( void ) const;
+		unsigned int	getEnergyPoints( void ) const;
+		unsigned int	getAttackDamage( void ) const;
+		std::string		getName( void ) const;
 		
 
 };

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 03:18:15 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 13:56:43 by coder            ###   ########.fr       */
+/*   Updated: 2022/03/01 15:06:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int main ( void )
 	ctJohn.printInfos();
 	ClapTrap ctWill;
 	ctWill = ctJohn;
-	ctWill.printInfos();
+	ctJohn.attack("Monster 2");
+	ctJohn.takeDamage(15);
+	ctJohn.printInfos();
+	ctJohn.beRepaired(4);
+	ctJohn.printInfos();
 	return 0;
 }

@@ -6,27 +6,21 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 02:04:06 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 13:53:23 by coder            ###   ########.fr       */
+/*   Updated: 2022/03/01 15:05:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void )
+	: _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	_name = "";
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name )
+	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	_name = name;
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 	std::cout << "Constructor of " <<  _name << " called" << std::endl;
 }
 
@@ -64,14 +58,14 @@ void	ClapTrap::attack( const std::string& target )
 		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 	else if (_hitPoints == 0)
-		std::cout << "ClapTrap has no more hit points " << std::endl;
+		std::cout << "ClapTrap " << _name << " is dead!" << std::endl;
 	else
-		std::cout << "ClapTrap has no more energy points " << std::endl;
+		std::cout << "ClapTrap has no energy points!" << std::endl;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
-	if (_hitPoints - amount < 0)
+	if (_hitPoints < amount)
 		_hitPoints = 0;
 	else
 		_hitPoints -= amount;
@@ -87,17 +81,14 @@ void	ClapTrap::beRepaired( unsigned int amount )
 		std::cout << "ClapTrap " << _name << " repaired " << amount << " hit points!" << std::endl;
 	}
 	else if (_hitPoints == 0)
-		std::cout << "ClapTrap has no more hit points " << std::endl;
+		std::cout << "ClapTrap " << _name << " is dead!" << std::endl;
 	else
-		std::cout << "ClapTrap has no more energy points " << std::endl;
+		std::cout << "ClapTrap has no energy points!" << std::endl;
 }
 
 void	ClapTrap::printInfos( void )
 {
-	std::cout << "Name: " << _name << std::endl;
-	std::cout << "Hit points: " << _hitPoints << std::endl;
-	std::cout << "Energy points: " << _energyPoints << std::endl;
-	std::cout << "Attack damage: " << _attackDamage << std::endl;
+	std::cout << _name << " HP:" << _hitPoints << " EP:" << _energyPoints << std::endl;
 }
 
 std::string	ClapTrap::getName( void ) const
@@ -105,17 +96,17 @@ std::string	ClapTrap::getName( void ) const
 	return (_name);
 }
 
-int			ClapTrap::getHitPoints( void ) const
+unsigned int	ClapTrap::getHitPoints( void ) const
 {
 	return (_hitPoints);
 }
 
-int			ClapTrap::getEnergyPoints( void ) const
+unsigned int	ClapTrap::getEnergyPoints( void ) const
 {
 	return (_energyPoints);
 }
 
-int			ClapTrap::getAttackDamage( void ) const
+unsigned int	ClapTrap::getAttackDamage( void ) const
 {
 	return (_attackDamage);
 }
