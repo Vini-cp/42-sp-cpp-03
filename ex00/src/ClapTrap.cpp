@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 02:04:06 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 03:34:11 by coder            ###   ########.fr       */
+/*   Updated: 2022/03/01 13:53:23 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ ClapTrap::ClapTrap( std::string name )
 ClapTrap::ClapTrap( const ClapTrap &ct )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	ClapTrap(ct.getName());
+	_name = ct.getName();
+	_hitPoints = ct.getHitPoints();
+	_energyPoints = ct.getEnergyPoints();
+	_attackDamage = ct.getAttackDamage();
 }
 
 ClapTrap::~ClapTrap( void )
@@ -46,7 +49,10 @@ ClapTrap	&ClapTrap::operator=( const ClapTrap &ct )
 	std::cout << "Copy assignment operator called " << std::endl;
 	if(this == &ct)
 		return (*this);
-	ClapTrap(ct.getName());
+	_name = ct.getName();
+	_hitPoints = ct.getHitPoints();
+	_energyPoints = ct.getEnergyPoints();
+	_attackDamage = ct.getAttackDamage();
 	return (*this);
 }
 
@@ -97,4 +103,19 @@ void	ClapTrap::printInfos( void )
 std::string	ClapTrap::getName( void ) const
 {
 	return (_name);
+}
+
+int			ClapTrap::getHitPoints( void ) const
+{
+	return (_hitPoints);
+}
+
+int			ClapTrap::getEnergyPoints( void ) const
+{
+	return (_energyPoints);
+}
+
+int			ClapTrap::getAttackDamage( void ) const
+{
+	return (_attackDamage);
 }
