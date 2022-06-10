@@ -1,30 +1,28 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 03:18:15 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 15:06:43 by coder            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Author: vcordeir <vcordeir@student.42sp.org.br>
+// 42 SP
 
-#include "./include/ClapTrap.hpp"
+#include "./include/ClapTrap.h"
 
 int main ( void )
 {
-	ClapTrap ctJohn = ClapTrap("John");
-	ctJohn.attack("Monster");
-	ctJohn.takeDamage(3);
-	ctJohn.beRepaired(4);
-	ctJohn.printInfos();
-	ClapTrap ctWill;
-	ctWill = ctJohn;
-	ctJohn.attack("Monster 2");
-	ctJohn.takeDamage(15);
-	ctJohn.printInfos();
-	ctJohn.beRepaired(4);
-	ctJohn.printInfos();
-	return 0;
+    ClapTrap ctJohn = ClapTrap( "John" );
+
+	std::cout << std::endl << ctJohn << std::endl;
+    ctJohn.attack( "Monster" );
+    ctJohn.takeDamage( 3 );
+    ctJohn.beRepaired( 4 );
+    std::cout << ctJohn << std::endl << std::endl;
+
+
+    ClapTrap ctWill = ctJohn;
+
+	ctWill.setName( "Will" );
+	std::cout << std::endl << ctWill << std::endl;
+    ctWill.attack( "Monster 2" );
+    ctWill.takeDamage( 15 );
+    std::cout << ctWill << std::endl;
+    ctWill.beRepaired( 4 );
+    std::cout << ctWill << std::endl;
+
+    return 0;
 }
