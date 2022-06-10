@@ -1,31 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 03:18:15 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 17:05:15 by coder            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Author: vcordeir <vcordeir@student.42sp.org.br>
+// 42 SP
 
-#include "./include/FragTrap.hpp"
+#include "./include/FragTrap.h"
 
 int main ( void )
 {
-	FragTrap john = FragTrap("John");
-	john.attack("Monster");
-	john.takeDamage(34);
-	john.beRepaired(4);
-	john.highFivesGuys();
-	john.printInfos();
-	john.attack("Monster 2");
-	john.takeDamage(15);
-	john.printInfos();
-	john.takeDamage(56);
-	john.printInfos();
-	john.attack("Monster 3");
-	john.printInfos();
-	return 0;
+    FragTrap john = FragTrap( "John" );
+    
+    std::cout << john << std::endl << std::endl;
+    john.attack( "Monster" );
+    john.takeDamage( 34 );
+    john.beRepaired( 4 );
+    john.highFivesGuys();
+    
+    std::cout << john << std::endl << std::endl;
+    john.attack( "Monster 2" );
+    john.takeDamage( 15 );
+    
+    std::cout << john << std::endl << std::endl;
+    john.takeDamage( 56 );
+    
+    std::cout << john << std::endl << std::endl;
+    john.attack( "Monster 3" );
+    
+    std::cout << john << std::endl << std::endl;
+    
+    return 0;
 }
