@@ -1,73 +1,83 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 16:58:34 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 17:21:52 by coder            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Author: vcordeir <vcordeir@student.42sp.org.br>
+// 42 SP
 
-#include "../include/FragTrap.hpp"
-#include <string>
+#include "../include/FragTrap.h"
 
-FragTrap::FragTrap( void )
-	: ClapTrap()
+//------------------------------------------------------------------------------
+
+FragTrap::FragTrap( void ): ClapTrap()
 {
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
-	std::cout << "FragTrap default constructor called" << std::endl;
+    setHitPoints( 100 );
+    setEnergyPoints( 100 );
+    setAttackDamage( 30 );
+    std::cout << "FragTrap default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap( std::string name )
-	: ClapTrap(name)
+//------------------------------------------------------------------------------
+
+FragTrap::FragTrap( std::string pName ): ClapTrap( pName )
 {
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
-	std::cout << "FragTrap constructor of " << name << " called" << std::endl;
+    setHitPoints( 100 );
+    setEnergyPoints( 100 );
+    setAttackDamage( 30 );
+    std::cout << "FragTrap constructor of " << getName() << " called" << std::endl;
 }
 
-FragTrap::FragTrap( const FragTrap &ct )
+//------------------------------------------------------------------------------
+
+FragTrap::FragTrap( const FragTrap& prFragTrap )
 {
-	std::cout << "Copy constructor called" << std::endl;
-	setName(ct.getName());
-	setHitPoints(ct.getHitPoints());
-	setEnergyPoints(ct.getEnergyPoints());
-	setAttackDamage(ct.getAttackDamage());
+    std::cout << "Copy constructor called" << std::endl;
+    *this = prFragTrap;
 }
+
+//------------------------------------------------------------------------------
 
 FragTrap::~FragTrap( void )
 {
-	std::cout << "FragTrap destructor of " <<  getName() << " called" << std::endl;
+    std::cout << "FragTrap destructor of " <<  getName() << " called" << std::endl;
 }
 
-FragTrap	&FragTrap::operator=( const FragTrap &ct )
+//------------------------------------------------------------------------------
+
+FragTrap& FragTrap::operator=( const FragTrap& prFragTrap )
 {
-	std::cout << "Copy assignment operator called " << std::endl;
-	if(this == &ct)
-		return (*this);
-	setName(ct.getName());
-	setHitPoints(ct.getHitPoints());
-	setEnergyPoints(ct.getEnergyPoints());
-	setAttackDamage(ct.getAttackDamage());
-	return (*this);
+    std::cout << "Copy assignment operator called " << std::endl;
+    if ( this == &prFragTrap ) return *this;
+
+    setName( prFragTrap.getName() );
+    setHitPoints( prFragTrap.getHitPoints() );
+    setEnergyPoints( prFragTrap.getEnergyPoints() );
+    setAttackDamage( prFragTrap.getAttackDamage() );
+
+    return *this;
 }
 
-static bool	compareStr( std::string greet )
+//------------------------------------------------------------------------------
+
+std::string FragTrap::getClassName( void ) const
 {
-	for (size_t i = 0; i < greet.length(); i++)
-		greet[i] = std::tolower(greet[i]);
-	return (greet == "high five");
+    return "FragTrap";
 }
 
-void	FragTrap::highFivesGuys( void )
+//------------------------------------------------------------------------------
+
+bool FragTrap::compareStr( std::string pGreet )
 {
-	std::string greeting = "";
-	std::cout << "High five:" << std::endl;
-	while (!compareStr(greeting))
-		std::getline(std::cin, greeting);
+    for ( size_t i = 0; i < pGreet.length(); i++ )
+        pGreet[ i ] = std::tolower( pGreet[ i ] );
+    return ( pGreet == "high five" );
 }
+
+//------------------------------------------------------------------------------
+
+void FragTrap::highFivesGuys( void )
+{
+    std::string greeting = "";
+    std::cout << "High five:" << std::endl;
+
+    while ( !compareStr( greeting ) )
+        std::getline( std::cin, greeting );
+}
+
+//------------------------------------------------------------------------------

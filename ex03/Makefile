@@ -11,18 +11,18 @@ OBJ_FOLDER	:= obj
 OBJS 		:= $(addprefix ${OBJ_FOLDER}/, ${SRCS:.cpp=.o})
 
 CC := c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -Wno-shadow -g -std=c++98 -fsanitize=address
 
 .PHONY: all re clean fclean test
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_FOLDER)/%.o: %.cpp
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	@rm -rf $(OBJ_FOLDER)

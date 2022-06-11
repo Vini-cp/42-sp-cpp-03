@@ -1,22 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 03:18:15 by coder             #+#    #+#             */
-/*   Updated: 2022/03/01 17:49:07 by coder            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Author: vcordeir <vcordeir@student.42sp.org.br>
+// 42 SP
 
-#include "./include/DiamondTrap.hpp"
+#include "./include/DiamondTrap.h"
 
 int main ( void )
 {
-	DiamondTrap john = DiamondTrap("John");
-	john.printInfos();
-	john.attack("Monster");
-	john.printInfos();
-	return 0;
+    DiamondTrap john = DiamondTrap("John");
+
+    std::cout << john << std::endl << std::endl;
+    john.attack("Monster");
+    john.whoAmI();
+    std::cout << john << std::endl << std::endl;
+
+    return 0;
 }
