@@ -22,7 +22,7 @@ ClapTrap::ClapTrap( std::string pName ) :
     mEnergyPoints( 10 ),
     mAttackDamage( 0 )
 {
-    std::cout << "ClapTrap Name constructor of " << mName << " called" << std::endl;
+    std::cout << "ClapTrap name constructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -71,23 +71,9 @@ std::string ClapTrap::getName( void ) const
 
 //------------------------------------------------------------------------------
 
-void ClapTrap::setHitPoints( unsigned int pHitPoints )
-{
-    mHitPoints = pHitPoints;
-}
-
-//------------------------------------------------------------------------------
-
 unsigned int ClapTrap::getHitPoints( void ) const
 {
     return mHitPoints;
-}
-
-//------------------------------------------------------------------------------
-
-void ClapTrap::setEnergyPoints( unsigned int pEnergyPoints )
-{
-    mEnergyPoints = pEnergyPoints;
 }
 
 //------------------------------------------------------------------------------
@@ -99,23 +85,9 @@ unsigned int ClapTrap::getEnergyPoints( void ) const
 
 //------------------------------------------------------------------------------
 
-void ClapTrap::setAttackDamage( unsigned int pAttackDamage )
-{
-    mAttackDamage = pAttackDamage;
-}
-
-//------------------------------------------------------------------------------
-
 unsigned int ClapTrap::getAttackDamage( void ) const
 {
     return mAttackDamage;
-}
-
-//------------------------------------------------------------------------------
-
-std::string ClapTrap::getClassName( void ) const
-{
-    return "ClapTrap";
 }
 
 //------------------------------------------------------------------------------
@@ -126,11 +98,11 @@ bool ClapTrap::canExecuteAction( void ) const
 
     if ( mHitPoints == 0 )
     {
-        std::cout << getClassName() << " " << mName << " is dead!" << std::endl;
+        std::cout << "ClapTrap " << mName << " is dead!" << std::endl;
     }
     else if ( mEnergyPoints == 0 )
     {
-        std::cout << getClassName() << " has no energy points!" << std::endl;
+        std::cout << "ClapTrap has no energy points!" << std::endl;
     }
 
     return false;
@@ -143,7 +115,7 @@ void ClapTrap::attack( const std::string& pTarget )
     if ( canExecuteAction() )
     {
         mEnergyPoints--;
-        std::cout << getClassName() << " " << mName << " attacks " << pTarget
+        std::cout << "ClapTrap " << mName << " attacks " << pTarget
                   << ", causing " << mAttackDamage << " points of damage!" << std::endl;
     }
 }
@@ -161,7 +133,7 @@ void ClapTrap::takeDamage( unsigned int pAmount )
         mHitPoints -= pAmount;
     }
 
-    std::cout << getClassName() << " " << mName << " was attacked, causing "
+    std::cout << "ClapTrap " << mName << " was attacked, causing "
               << pAmount << " points of damage!" << std::endl;
 }
 
@@ -173,7 +145,7 @@ void ClapTrap::beRepaired( unsigned int pAmount )
     {
         mHitPoints += pAmount;
         mEnergyPoints--;
-        std::cout << getClassName() << " " << mName << " repaired " << pAmount << " hit points!" << std::endl;
+        std::cout << "ClapTrap " << mName << " repaired " << pAmount << " hit points!" << std::endl;
     }
 }
 
