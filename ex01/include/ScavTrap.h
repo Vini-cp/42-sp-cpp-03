@@ -2,9 +2,9 @@
 // 42 SP
 
 #ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#define SCAVTRAP_H
 
-# include "ClapTrap.h"
+#include "ClapTrap.h"
 
 class ScavTrap : public ClapTrap
 {
@@ -21,7 +21,7 @@ public:
     void guardGate( void );
 
 private:
-	std::string getClassName( void ) const;
+    virtual std::string getClassName( void ) const;
 };
 
 #endif

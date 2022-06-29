@@ -5,27 +5,29 @@
 
 //------------------------------------------------------------------------------
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+ScavTrap::ScavTrap( void ) : ClapTrap()
 {
     setHitPoints( 100 );
     setEnergyPoints( 50 );
     setAttackDamage( 20 );
-    std::cout << "ScavTrap default constructor called" << std::endl;
+
+    std::cout << getClassName() << " default constructor called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-ScavTrap::ScavTrap( std::string pName ): ClapTrap( pName )
+ScavTrap::ScavTrap( std::string pName ) : ClapTrap( pName )
 {
     setHitPoints( 100 );
     setEnergyPoints( 50 );
     setAttackDamage( 20 );
-    std::cout << "ScavTrap constructor of " << getName() << " called" << std::endl;
+
+    std::cout << getClassName() << " constructor of " << getName() << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-ScavTrap::ScavTrap( const ScavTrap& prScavTrap )
+ScavTrap::ScavTrap( const ScavTrap& prScavTrap ) : ClapTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = prScavTrap;
@@ -35,7 +37,7 @@ ScavTrap::ScavTrap( const ScavTrap& prScavTrap )
 
 ScavTrap::~ScavTrap( void )
 {
-    std::cout << "ScavTrap destructor of " <<  getName() << " called" << std::endl;
+    std::cout << getClassName() << " destructor of " << getName() << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -67,7 +69,7 @@ void ScavTrap::attack( const std::string& pTarget )
     if ( canExecuteAction() )
     {
         setEnergyPoints( getEnergyPoints() - 1 );
-        std::cout << "ScavTrap " << getName() << " attacks " << pTarget
+        std::cout << getClassName() << " " << getName() << " attacks " << pTarget
                   << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
     }
 }
@@ -76,7 +78,7 @@ void ScavTrap::attack( const std::string& pTarget )
 
 void ScavTrap::guardGate( void )
 {
-    std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode" << std::endl;
+    std::cout << getClassName() << " " << getName() << " is now in Gate keeper mode" << std::endl;
 }
 
 //------------------------------------------------------------------------------
