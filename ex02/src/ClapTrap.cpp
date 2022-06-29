@@ -5,7 +5,7 @@
 
 //------------------------------------------------------------------------------
 
-ClapTrap::ClapTrap( void ):
+ClapTrap::ClapTrap( void ) :
     mName( "" ),
     mHitPoints( 10 ),
     mEnergyPoints( 10 ),
@@ -16,13 +16,13 @@ ClapTrap::ClapTrap( void ):
 
 //------------------------------------------------------------------------------
 
-ClapTrap::ClapTrap( std::string pName ):
+ClapTrap::ClapTrap( std::string pName ) :
     mName( pName ),
     mHitPoints( 10 ),
     mEnergyPoints( 10 ),
     mAttackDamage( 0 )
 {
-    std::cout << "ClapTrap Name constructor of " <<  mName << " called" << std::endl;
+    std::cout << "ClapTrap Name constructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap( const ClapTrap& prClapTrap )
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "ClapTrap Destructor of " <<  mName << " called" << std::endl;
+    std::cout << "ClapTrap Destructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -51,6 +51,7 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& prClapTrap )
     mHitPoints = prClapTrap.getHitPoints();
     mEnergyPoints = prClapTrap.getEnergyPoints();
     mAttackDamage = prClapTrap.getAttackDamage();
+
     return *this;
 }
 
@@ -58,7 +59,7 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& prClapTrap )
 
 void ClapTrap::setName( std::string pName )
 {
-	mName = pName;
+    mName = pName;
 }
 
 //------------------------------------------------------------------------------
@@ -72,7 +73,7 @@ std::string ClapTrap::getName( void ) const
 
 void ClapTrap::setHitPoints( unsigned int pHitPoints )
 {
-	mHitPoints = pHitPoints;
+    mHitPoints = pHitPoints;
 }
 
 //------------------------------------------------------------------------------
@@ -86,7 +87,7 @@ unsigned int ClapTrap::getHitPoints( void ) const
 
 void ClapTrap::setEnergyPoints( unsigned int pEnergyPoints )
 {
-	mEnergyPoints = pEnergyPoints;
+    mEnergyPoints = pEnergyPoints;
 }
 
 //------------------------------------------------------------------------------
@@ -100,7 +101,7 @@ unsigned int ClapTrap::getEnergyPoints( void ) const
 
 void ClapTrap::setAttackDamage( unsigned int pAttackDamage )
 {
-	mAttackDamage = pAttackDamage;
+    mAttackDamage = pAttackDamage;
 }
 
 //------------------------------------------------------------------------------
@@ -114,7 +115,7 @@ unsigned int ClapTrap::getAttackDamage( void ) const
 
 std::string ClapTrap::getClassName( void ) const
 {
-	return "ClapTrap";
+    return "ClapTrap";
 }
 
 //------------------------------------------------------------------------------
@@ -149,7 +150,7 @@ void ClapTrap::attack( const std::string& pTarget )
 
 //------------------------------------------------------------------------------
 
-void	ClapTrap::takeDamage( unsigned int pAmount )
+void ClapTrap::takeDamage( unsigned int pAmount )
 {
     if ( mHitPoints < pAmount )
     {
@@ -166,7 +167,7 @@ void	ClapTrap::takeDamage( unsigned int pAmount )
 
 //------------------------------------------------------------------------------
 
-void	ClapTrap::beRepaired( unsigned int pAmount )
+void ClapTrap::beRepaired( unsigned int pAmount )
 {
     if ( canExecuteAction() )
     {

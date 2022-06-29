@@ -5,27 +5,29 @@
 
 //------------------------------------------------------------------------------
 
-FragTrap::FragTrap( void ): ClapTrap()
+FragTrap::FragTrap( void ) : ClapTrap()
 {
     setHitPoints( 100 );
     setEnergyPoints( 100 );
     setAttackDamage( 30 );
-    std::cout << "FragTrap default constructor called" << std::endl;
+
+    std::cout << getClassName() << " default constructor called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-FragTrap::FragTrap( std::string pName ): ClapTrap( pName )
+FragTrap::FragTrap( std::string pName ) : ClapTrap( pName )
 {
     setHitPoints( 100 );
     setEnergyPoints( 100 );
     setAttackDamage( 30 );
-    std::cout << "FragTrap constructor of " << getName() << " called" << std::endl;
+
+    std::cout << getClassName() << " constructor of " << getName() << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-FragTrap::FragTrap( const FragTrap& prFragTrap )
+FragTrap::FragTrap( const FragTrap& prFragTrap ) : ClapTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = prFragTrap;
@@ -35,7 +37,7 @@ FragTrap::FragTrap( const FragTrap& prFragTrap )
 
 FragTrap::~FragTrap( void )
 {
-    std::cout << "FragTrap destructor of " <<  getName() << " called" << std::endl;
+    std::cout << getClassName() << " destructor of " << getName() << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -65,7 +67,10 @@ std::string FragTrap::getClassName( void ) const
 bool FragTrap::compareStr( std::string pGreet )
 {
     for ( size_t i = 0; i < pGreet.length(); i++ )
+    {
         pGreet[ i ] = std::tolower( pGreet[ i ] );
+    }
+
     return ( pGreet == "high five" );
 }
 
@@ -74,10 +79,13 @@ bool FragTrap::compareStr( std::string pGreet )
 void FragTrap::highFivesGuys( void )
 {
     std::string greeting = "";
+
     std::cout << "High five:" << std::endl;
 
     while ( !compareStr( greeting ) )
+    {
         std::getline( std::cin, greeting );
+    }
 }
 
 //------------------------------------------------------------------------------

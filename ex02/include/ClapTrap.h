@@ -2,9 +2,9 @@
 // 42 SP
 
 #ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#define CLAPTRAP_H
 
-# include <iostream>
+#include <iostream>
 
 class ClapTrap
 {
@@ -35,7 +35,7 @@ public:
 
 protected:
 
-	bool canExecuteAction( void ) const;
+    bool canExecuteAction( void ) const;
 
 private:
 
@@ -44,7 +44,7 @@ private:
     unsigned int mEnergyPoints;
     unsigned int mAttackDamage;
 
-	std::string getClassName( void ) const;
+    virtual std::string getClassName( void ) const;
 
 };
 
