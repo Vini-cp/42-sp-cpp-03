@@ -20,8 +20,6 @@ public:
     void attack( const std::string& pTarget );
     void guardGate( void );
 
-private:
-    virtual std::string getClassName( void ) const;
 };
 
 #endif

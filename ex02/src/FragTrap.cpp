@@ -7,22 +7,22 @@
 
 FragTrap::FragTrap( void ) : ClapTrap()
 {
-    setHitPoints( 100 );
-    setEnergyPoints( 100 );
-    setAttackDamage( 30 );
+    mHitPoints = 100;
+    mEnergyPoints = 100;
+    mAttackDamage = 30;
 
-    std::cout << getClassName() << " default constructor called" << std::endl;
+    std::cout << "FragTrap default constructor called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
 FragTrap::FragTrap( std::string pName ) : ClapTrap( pName )
 {
-    setHitPoints( 100 );
-    setEnergyPoints( 100 );
-    setAttackDamage( 30 );
+    mHitPoints = 100;
+    mEnergyPoints = 100;
+    mAttackDamage = 30;
 
-    std::cout << getClassName() << " constructor of " << getName() << " called" << std::endl;
+    std::cout << "FragTrap name constructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ FragTrap::FragTrap( const FragTrap& prFragTrap ) : ClapTrap()
 
 FragTrap::~FragTrap( void )
 {
-    std::cout << getClassName() << " destructor of " << getName() << " called" << std::endl;
+    std::cout << "FragTrap destructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -47,19 +47,12 @@ FragTrap& FragTrap::operator=( const FragTrap& prFragTrap )
     std::cout << "Copy assignment operator called " << std::endl;
     if ( this == &prFragTrap ) return *this;
 
-    setName( prFragTrap.getName() );
-    setHitPoints( prFragTrap.getHitPoints() );
-    setEnergyPoints( prFragTrap.getEnergyPoints() );
-    setAttackDamage( prFragTrap.getAttackDamage() );
+    mName = prFragTrap.getName();
+    mHitPoints = prFragTrap.getHitPoints();
+    mEnergyPoints = prFragTrap.getEnergyPoints();
+    mAttackDamage = prFragTrap.getAttackDamage();
 
     return *this;
-}
-
-//------------------------------------------------------------------------------
-
-std::string FragTrap::getClassName( void ) const
-{
-    return "FragTrap";
 }
 
 //------------------------------------------------------------------------------

@@ -20,7 +20,6 @@ public:
     void highFivesGuys( void );
 
 private:
-    virtual std::string getClassName( void ) const;
     bool compareStr( std::string pGreet );
 };
 
