@@ -2,9 +2,9 @@
 // 42 SP
 
 #ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#define CLAPTRAP_H
 
-# include <iostream>
+#include <iostream>
 
 class ClapTrap
 {
@@ -21,7 +21,7 @@ public:
     void takeDamage( unsigned int pAmount );
     void beRepaired( unsigned int pAmount );
 
-	void setName( std::string pName );
+    void setName( std::string pName );
     std::string getName( void ) const;
 
     unsigned int getHitPoints( void ) const;

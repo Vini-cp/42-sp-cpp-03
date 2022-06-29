@@ -5,7 +5,7 @@
 
 //------------------------------------------------------------------------------
 
-ClapTrap::ClapTrap( void ):
+ClapTrap::ClapTrap( void ) :
     mName( "" ),
     mHitPoints( 10 ),
     mEnergyPoints( 10 ),
@@ -16,13 +16,13 @@ ClapTrap::ClapTrap( void ):
 
 //------------------------------------------------------------------------------
 
-ClapTrap::ClapTrap( std::string pName ):
+ClapTrap::ClapTrap( std::string pName ) :
     mName( pName ),
     mHitPoints( 10 ),
     mEnergyPoints( 10 ),
     mAttackDamage( 0 )
 {
-    std::cout << "Name constructor of " <<  mName << " called" << std::endl;
+    std::cout << "Name constructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap( const ClapTrap& prClapTrap )
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "Destructor of " <<  mName << " called" << std::endl;
+    std::cout << "Destructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -51,6 +51,7 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& prClapTrap )
     mHitPoints = prClapTrap.getHitPoints();
     mEnergyPoints = prClapTrap.getEnergyPoints();
     mAttackDamage = prClapTrap.getAttackDamage();
+
     return *this;
 }
 
@@ -86,7 +87,7 @@ void ClapTrap::attack( const std::string& pTarget )
 
 //------------------------------------------------------------------------------
 
-void	ClapTrap::takeDamage( unsigned int pAmount )
+void ClapTrap::takeDamage( unsigned int pAmount )
 {
     if ( mHitPoints < pAmount )
     {
@@ -103,7 +104,7 @@ void	ClapTrap::takeDamage( unsigned int pAmount )
 
 //------------------------------------------------------------------------------
 
-void	ClapTrap::beRepaired( unsigned int pAmount )
+void ClapTrap::beRepaired( unsigned int pAmount )
 {
     if ( canExecuteAction() )
     {
@@ -117,7 +118,7 @@ void	ClapTrap::beRepaired( unsigned int pAmount )
 
 void ClapTrap::setName( std::string pName )
 {
-	mName = pName;
+    mName = pName;
 }
 
 //------------------------------------------------------------------------------
