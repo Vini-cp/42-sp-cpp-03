@@ -2,10 +2,10 @@
 // 42 SP
 
 #ifndef DIAMONDTRAP_H
-# define DIAMONDTRAP_H
+#define DIAMONDTRAP_H
 
-# include "FragTrap.h"
-# include "ScavTrap.h"
+#include "FragTrap.h"
+#include "ScavTrap.h"
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
@@ -19,9 +19,9 @@ public:
     DiamondTrap& operator=( const DiamondTrap& prDiamondTrap );
 
     void attack( const std::string& target );
-	void whoAmI( void ) const;
+    void whoAmI( void ) const;
 
-	std::string getName( void ) const;
+    std::string getName( void ) const;
 
 private:
 

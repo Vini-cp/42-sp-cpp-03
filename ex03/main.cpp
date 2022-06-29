@@ -10,6 +10,8 @@ int main ( void )
     std::cout << john << std::endl << std::endl;
     john.attack("Monster");
     john.whoAmI();
+    john.guardGate();
+    john.highFivesGuys();
     std::cout << john << std::endl << std::endl;
 
     return 0;

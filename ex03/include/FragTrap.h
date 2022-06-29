@@ -2,11 +2,11 @@
 // 42 SP
 
 #ifndef FRAGTRAP_H
-# define FRAGTRAP_H
+#define FRAGTRAP_H
 
-# include "ClapTrap.h"
+#include "ClapTrap.h"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
 
@@ -15,13 +15,12 @@ public:
     FragTrap( const FragTrap& prFragTrap );
     ~FragTrap( void );
 
-    FragTrap& operator=( const FragTrap& FragTrap );
+    FragTrap &operator=( const FragTrap& FragTrap );
 
     void highFivesGuys( void );
 
 private:
-    std::string getClassName( void ) const;
-	bool compareStr( std::string pGreet );
+    bool compareStr( std::string pGreet );
 };
 
 #endif

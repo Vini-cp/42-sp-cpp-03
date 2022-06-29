@@ -2,9 +2,9 @@
 // 42 SP
 
 #ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#define CLAPTRAP_H
 
-# include <iostream>
+#include <iostream>
 
 class ClapTrap
 {
@@ -17,34 +17,25 @@ public:
 
     ClapTrap& operator=( const ClapTrap& prClapTrap );
 
-    void setName( std::string pName );
-    std::string getName( void ) const;
-
-    unsigned int getHitPoints( void ) const;
-    void setHitPoints( unsigned int pHitPoints );
-
-    unsigned int getEnergyPoints( void ) const;
-    void setEnergyPoints( unsigned int pEnergyPoints );
-
-    unsigned int getAttackDamage( void ) const;
-    void setAttackDamage( unsigned int pAttackDamage );
-
     void attack( const std::string& pTarget );
     void takeDamage( unsigned int pAmount );
     void beRepaired( unsigned int pAmount );
 
+    void setName( std::string pName );
+    std::string getName( void ) const;
+
+    unsigned int getHitPoints( void ) const;
+    unsigned int getEnergyPoints( void ) const;
+    unsigned int getAttackDamage( void ) const;
+
 protected:
-
-	bool canExecuteAction( void ) const;
-
-private:
 
     std::string mName;
     unsigned int mHitPoints;
     unsigned int mEnergyPoints;
     unsigned int mAttackDamage;
 
-	std::string getClassName( void ) const;
+    bool canExecuteAction( void ) const;
 
 };
 

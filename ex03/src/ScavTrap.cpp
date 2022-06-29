@@ -5,27 +5,29 @@
 
 //------------------------------------------------------------------------------
 
-ScavTrap::ScavTrap( void ): ClapTrap()
+ScavTrap::ScavTrap( void ) : ClapTrap()
 {
-    setHitPoints( 100 );
-    setEnergyPoints( 50 );
-    setAttackDamage( 20 );
+    mHitPoints = 100;
+    mEnergyPoints = 50;
+    mAttackDamage = 20;
+
     std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-ScavTrap::ScavTrap( std::string pName ): ClapTrap( pName )
+ScavTrap::ScavTrap( std::string pName ) : ClapTrap( pName )
 {
-    setHitPoints( 100 );
-    setEnergyPoints( 50 );
-    setAttackDamage( 20 );
-    std::cout << "ScavTrap constructor of " << getName() << " called" << std::endl;
+    mHitPoints = 100;
+    mEnergyPoints = 50;
+    mAttackDamage = 20;
+
+    std::cout << "ScavTrap name constructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-ScavTrap::ScavTrap( const ScavTrap& prScavTrap )
+ScavTrap::ScavTrap( const ScavTrap& prScavTrap ) : ClapTrap()
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = prScavTrap;
@@ -35,7 +37,7 @@ ScavTrap::ScavTrap( const ScavTrap& prScavTrap )
 
 ScavTrap::~ScavTrap( void )
 {
-    std::cout << "ScavTrap destructor of " <<  getName() << " called" << std::endl;
+    std::cout << "ScavTrap destructor of " << mName << " called" << std::endl;
 }
 
 //------------------------------------------------------------------------------
@@ -45,19 +47,12 @@ ScavTrap& ScavTrap::operator=( const ScavTrap& prScavTrap )
     std::cout << "Copy assignment operator called " << std::endl;
     if ( this == &prScavTrap ) return *this;
 
-    setName( prScavTrap.getName() );
-    setHitPoints( prScavTrap.getHitPoints() );
-    setEnergyPoints( prScavTrap.getEnergyPoints() );
-    setAttackDamage( prScavTrap.getAttackDamage() );
+    mName = prScavTrap.getName();
+    mHitPoints = prScavTrap.getHitPoints();
+    mEnergyPoints = prScavTrap.getEnergyPoints();
+    mAttackDamage = prScavTrap.getAttackDamage();
 
     return *this;
-}
-
-//------------------------------------------------------------------------------
-
-std::string ScavTrap::getClassName( void ) const
-{
-    return "ScavTrap";
 }
 
 //------------------------------------------------------------------------------
@@ -66,9 +61,9 @@ void ScavTrap::attack( const std::string& pTarget )
 {
     if ( canExecuteAction() )
     {
-        setEnergyPoints( getEnergyPoints() - 1 );
-        std::cout << "ScavTrap " << getName() << " attacks " << pTarget
-                  << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+        mEnergyPoints--;
+        std::cout << "ScavTrap " << mName << " attacks " << pTarget
+                  << ", causing " << mAttackDamage << " points of damage!" << std::endl;
     }
 }
 
@@ -76,7 +71,7 @@ void ScavTrap::attack( const std::string& pTarget )
 
 void ScavTrap::guardGate( void )
 {
-    std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode" << std::endl;
+    std::cout << "ScavTrap " << mName << " is now in Gate keeper mode" << std::endl;
 }
 
 //------------------------------------------------------------------------------
